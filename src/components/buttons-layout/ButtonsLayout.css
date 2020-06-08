@@ -1,0 +1,16 @@
+.buttons-layout {
+  height: 400px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (25%)[4];
+      grid-template-columns: repeat(4, 25%);
+  -ms-grid-columns: (auto)[4];
+      grid-template-columns: repeat(4, auto);
+}
+
+@media only screen and (max-height: 550px) {
+  .buttons-layout {
+    height: 80%;
+  }
+}
+/*# sourceMappingURL=ButtonsLayout.css.map */

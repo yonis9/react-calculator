@@ -1,0 +1,49 @@
+.button {
+  background-color: #4D4D4D;
+  color: white;
+  font-size: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  outline: 1px solid black;
+}
+
+.button.ac {
+  background-color: #AC3939;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.button.equal {
+  background-color: #004466;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 2;
+  grid-row: 4 / span 2;
+  -ms-grid-column: 4;
+  grid-column: 4;
+  z-index: 2;
+}
+
+.button.operation {
+  background-color: #666666;
+}
+
+.button:nth-last-child(2) {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.button:hover {
+  cursor: pointer;
+  outline: 1px solid grey;
+  z-index: 3;
+}
+/*# sourceMappingURL=Button.css.map */

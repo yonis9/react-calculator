@@ -1,0 +1,11 @@
+.buttons-layout {
+    // bottom: 4px;  right: 2px; left: 2px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-columns: repeat(4, auto);
+
+    @media only screen and (max-height: 550px) {
+        height: 80%;
+    }
+}

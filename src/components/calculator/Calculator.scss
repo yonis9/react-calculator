@@ -1,0 +1,17 @@
+.calculator {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 500px;
+    width: 400px;
+    background-color: black;
+    border: 3px solid #40424B;
+
+    @media only screen and (max-height: 550px) {
+        height: 80vh;
+    }
+
+    @media only screen and (max-height: 400px) {
+        height: 80vh;
+    }
+}
