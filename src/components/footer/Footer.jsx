@@ -8,7 +8,7 @@ const Footer = () => (
     <div className='footer'>
         <p>
             Made by Yoni Sisso
-            <a href='https://github.com/yonis9' target='_blank' >
+            <a href='https://github.com/yonis9' target='_blank' rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faGithub} />
             </a> 
         </p>

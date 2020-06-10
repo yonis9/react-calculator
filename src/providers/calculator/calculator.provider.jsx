@@ -6,10 +6,7 @@ export const CalculatorContext = createContext({
     storedValue: '', 
     operation: null,
     clear: () => {},
-    handleNumber: () => {},
-    handleOperation: () => {},
-    handleDecimal: () => {},
-    calculate: () => {}
+    handleButtonClick: () => {}
 })
 
 
@@ -18,7 +15,36 @@ const CalculatorProvider = ({ children }) => {
     const [storedValue, setStoredValue] = useState('');
     const [operation, setOperation] = useState(null);
 
+    const handleButtonClick = (keyValue, type) => {
+        switch (type) {
+            case 'number': {
+                handleNumber(keyValue)
+                break;
+            }
+            case 'operation': {
+                handleOperation(keyValue)
+                break;
+            }
+            case 'decimal': {
+                handleDecimal();
+                break;
+            }
+    
+            case 'equal': {
+                calculate();
+                break;
+             }
+    
+             case 'ac': {
+                clear()
+                break;
+             }
+            default:
+                return
+        }
+    }
 
+    
     const handleNumber = keyValue => {
         if (value.length === 8) return;
 
@@ -56,18 +82,12 @@ const CalculatorProvider = ({ children }) => {
         setOperation(null);
     }
 
-
-
     return (
         <CalculatorContext.Provider value={{
             value,
             storedValue,
             operation,
-            clear,
-            handleDecimal,
-            calculate,
-            handleNumber,
-            handleOperation
+            handleButtonClick
         }}>
             {children}
         </CalculatorContext.Provider>
