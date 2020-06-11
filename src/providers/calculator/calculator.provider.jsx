@@ -1,10 +1,11 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { operationsMap } from './operations'
 
 export const CalculatorContext = createContext({
     value: '0',
     storedValue: '', 
     operation: null,
+    message: '',
     clear: () => {},
     handleButtonClick: () => {}
 })
@@ -14,6 +15,15 @@ const CalculatorProvider = ({ children }) => {
     const [value, setValue] = useState('0');
     const [storedValue, setStoredValue] = useState('');
     const [operation, setOperation] = useState(null);
+    const [message, setMessage] = useState('') 
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setMessage('')
+        },3000)
+        return () => clearTimeout(timer)
+    },[message])
+    
 
     const handleButtonClick = (keyValue, type) => {
         switch (type) {
@@ -69,6 +79,12 @@ const CalculatorProvider = ({ children }) => {
         const a = Number(storedValue);
         const b = Number(value);
 
+        if (operation === '/' && b === 0) {
+            setMessage('Cannot divide by 0');
+            return;
+        }
+    
+
         const result = operationsMap[operation](a,b);
     
         setValue(`${result}`);
@@ -87,6 +103,7 @@ const CalculatorProvider = ({ children }) => {
             value,
             storedValue,
             operation,
+            message,
             handleButtonClick
         }}>
             {children}
