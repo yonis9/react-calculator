@@ -4,7 +4,8 @@ import { CalculatorContext } from '../../providers/calculator/calculator.provide
 import './Screen.scss';
 
 const Screen = () => {
-    const { value, operation, storedValue, message } = useContext(CalculatorContext)
+    const { value, operation, storedValue, message } = useContext(CalculatorContext);
+
     return (
         <div className='screen'>
             
